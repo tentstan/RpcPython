@@ -36,8 +36,8 @@ def ping(conn,params):
 def send_result(conn,out,result):
 	response = json.dumps({"out":out,"result":result})
 	length_prefix = struct.pack("I",len(response))
-	conn.send_all(length_prefix)
-	conn.send_all(response)
+	conn.sendall(length_prefix)
+	conn.sendall(response)
 
 if __name__ == '__main__':
 	sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
