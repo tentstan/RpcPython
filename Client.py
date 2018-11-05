@@ -10,7 +10,7 @@ import struct
 import socket
 
 def rpc(sock,in_,params):
-	response = json.dumps({"in":in_,"params:"params})
+	response = json.dumps({"in":in_,"params":params})
 	length_prefix = struct.pack("I",len(response))
 	sock.sendall(length_prefix)
 	sock.sendall(response)
