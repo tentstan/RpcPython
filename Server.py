@@ -39,7 +39,7 @@ def send_result(conn,out,result):
 	conn.send_all(length_prefix)
 	conn.send_all(response)
 
-if __main__ == '__main__':
+if __name__ == '__main__':
 	sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 	sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 	sock.bind("localhost",8080)
