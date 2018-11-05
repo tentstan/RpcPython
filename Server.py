@@ -42,7 +42,7 @@ def send_result(conn,out,result):
 if __name__ == '__main__':
 	sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 	sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
-	sock.bind("localhost",8080)
+	sock.bind(("localhost",8080))
 	sock.listen(1)
 	handlers = {
 		"ping":ping
