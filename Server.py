@@ -7,6 +7,7 @@
 import json
 import struct
 import socket
+import thread
 
 def handle_conn(conn,addr,handlers):
 	print addr,"comes"
@@ -28,7 +29,7 @@ def handle_conn(conn,addr,handlers):
 def loop(sock,handlers):
 	while True:
 		conn,addr = sock.accept()
-		handle_conn(conn,addr,handlers)
+		thread.start_new_thread(handle_conn(conn,addr,handlers))
 
 def ping(conn,params):
 	send_result(conn,"pong",params)
